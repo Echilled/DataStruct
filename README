@@ -1,0 +1,17 @@
+FlyHigh airline would like you to design a real time airline reservation system. The data that need to
+be kept in memory (RAM) are as follow. At any point in time the system must be able to handle
+150,000 passenger records and the information for 250 flights.
+• Passenger name, passport number, DOB, membership status (i.e. gold, silver, non-member)
+• Flight number, maximum capacity, departure (location, date and time) and arrival (location,
+date and time), list of confirmed passengers, list of passengers under waiting list.
+• The allocation of seats under the waiting list will start from members with the gold status.
+Non-member has the lowest priority. Within the same status, it will be first come first serve.
+The system must be able to perform the following operations.
+1. Add a new passenger to a flight.
+2. Retrieve the information of all the passengers on a specific flight.
+3. Assignment of seat to those under waiting list (pick the next passenger to be assigned a seat)
+4. List of flights with the highest occupancy rate
+Design a suitable data structure and algorithm to fulfil the 4 operations. The data structure can be
+array, linked list, stack or queue. I may require a combination of different types of data structure.
+You need to balance the trade-off between space and time. Clearly discuss the space and time
+complexity of the data structure and the operations
