@@ -48,7 +48,8 @@ class Flight:
     def occupany_rate(self) -> float:
         return len(self.confirmed_passengers)/self.max_capacity
 
-    class AirLineReservationSystem:
+
+class AirLineReservationSystem:
         pass
 
 
