@@ -49,8 +49,43 @@ class Flight:
         return len(self.confirmed_passengers)/self.max_capacity
 
 
+
 class AirLineReservationSystem:
-        pass
+    def __init__(self):
+        self.flights: Dict[str, Flight] = {}  # Dictionary to store flights
+
+    def add_flight(self, flight: Flight):
+        # Add a flight to the system
+        self.flights[flight.flight_number] = flight
+
+    def add_passenger_to_flight(self, flight_number: str, passenger: Passenger):
+        # Add a passenger to a specific flight
+        if flight_number in self.flights:
+            flight = self.flights[flight_number]
+            flight.add_passenger(passenger)
+        else:
+            print(f"Flight {flight_number} does not exist.")
+
+    def get_passengers_info_on_flight(self, flight_number: str) -> Union[List[Passenger], None]:
+        # Retrieve information about passengers on a specific flight
+        if flight_number in self.flights:
+            flight = self.flights[flight_number]
+            return flight.get_passengers_info()
+        else:
+            print(f"Flight {flight_number} does not exist.")
+            return None
+
+    def assign_seats_to_waiting_lists(self):
+        # Assign seats to passengers on waiting lists for all flights
+        for flight_number in self.flights:
+            flight = self.flights[flight_number]
+            flight.assign_seat_to_waiting_list()
+
+    def get_highest_occupancy_flights(self) -> List[str]:
+        # Get a list of flight numbers with the highest occupancy rates
+        sorted_flights = sorted(self.flights.values(), key=lambda x: x.occupancy_rate(), reverse=True)
+        return [flight.flight_number for flight in sorted_flights[:5]]
+
 
 
 def main():
